@@ -2,8 +2,15 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    dotenv (3.1.2)
+    faraday (2.9.2)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     json (2.7.2)
     language_server-protocol (3.17.0.3)
+    net-http (0.4.1)
+      uri
     parallel (1.25.1)
     parser (3.3.3.0)
       ast (~> 2.4.1)
@@ -29,12 +36,15 @@ GEM
     ruby-progressbar (1.13.0)
     strscan (3.1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
 
 PLATFORMS
   aarch64-linux
   ruby
 
 DEPENDENCIES
+  dotenv
+  faraday
   rubocop
 
 BUNDLED WITH
