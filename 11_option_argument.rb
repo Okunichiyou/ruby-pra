@@ -32,6 +32,23 @@ p 'text'.object_id
 p :symbol.object_id
 p :symbol.object_id
 
+def method5(a, b, *c, d)
+  puts a
+  puts b
+  puts c
+  puts d
+end
+
+def method6(a, b, *c, **d)
+  puts a
+  puts b
+  puts c
+  puts d
+end
+
+method5(1, 2, 3, key1: 'val1', key2: 'val2')
+method6(1, 2, 3, key1: 'val1', key2: 'val2')
+
 require 'benchmark'
 
 n = 100_000_000
