@@ -1,15 +1,16 @@
 n = gets.to_i
-capacities = gets.split.map(&:to_i)
-capacities.prepend(0)
-
+a = gets.split.map(&:to_i)
 d = gets.to_i
+
+prefix_max = Array.new(n + 1, 0)
+# 10万ループ
+(1..n).each { prefix_max[it] = [prefix_max[it - 1], a[it - 1]].max }
+
+suffix_max = Array.new(n + 2, 0)
+n.downto(1) { suffix_max[it] = [suffix_max[it + 1], a[it - 1]].max }
 
 # 10万ループ
 d.times do
   l, r = gets.split.map(&:to_i)
-  # 10万ループ
-  left_max = capacities[1...l].max
-  right_max = capacities[(r + 1)..n].max
-
-  puts [left_max, right_max].max
+  puts [prefix_max[l - 1], suffix_max[r + 1]].max
 end
