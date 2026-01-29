@@ -1,24 +1,21 @@
 n = gets.to_i
 
-# 配列がデカすぎる
-arr = 0.step(n, 0.001).to_a
-
-left = 0
-right = n * 1000 - 1
+left = 0.0
+right = n.to_f
+eps = 1e-6
 
 def calc(x)
   x**3 + x
 end
 
-# 28回 = log2(100,000 * 1000)
-while left < right
-  mid = (left + right) / 2
+while right - left > eps
+  mid = (left + right) / 2.0
 
-  if calc(arr[mid]) > n
+  if calc(mid) > n
     right = mid
   else
-    left = mid + 1
+    left = mid
   end
 end
 
-puts right / 1000.0
+puts left
